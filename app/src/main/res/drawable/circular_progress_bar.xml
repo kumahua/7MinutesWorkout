@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="ring"
+            android:innerRadiusRatio="2.7"
+            android:thicknessRatio="50.0"
+            android:useLevel="true"
+            >
+            <solid android:color="@color/colorAccent" />
+
+        </shape>
+    </item>
+</layer-list>
+
+<!--innerRadiusRatio：內環的半徑
+innerRadiusRatio：內環的半徑比率，以環的寬度比率來表示內環的半徑，
+默認為3，表示內環半徑為環的寬度除以 3
+thicknessRatio：環的厚度比率，以環的寬度比率來表示環的厚度，默認為9，表示環的厚度為環的寬度除以9
+useLevel：一般為 false，否則可能環形無法顯示，只有作為LevelListDrawable 使用時才設為 true。-->
