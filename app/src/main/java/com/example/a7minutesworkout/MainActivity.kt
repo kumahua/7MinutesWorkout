@@ -21,6 +21,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.flBMI.setOnClickListener {
+            var intent = Intent(this, BMIActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
 }
