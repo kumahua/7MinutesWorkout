@@ -100,6 +100,7 @@ class BMIActivity : AppCompatActivity() {
         if(binding?.etMetricUnitWeight?.text.toString().isEmpty() && binding?.etMetricUnitHeight?.text.toString().isEmpty()){
             binding?.tilMetricUnitWeight?.error = "請輸入體重"
             binding?.tilMetricUnitHeight?.error = "請輸入身高"
+            isValid = false
         }
         else if(binding?.etMetricUnitWeight?.text.toString().isEmpty()) {
             binding?.tilMetricUnitWeight?.error = "請輸入體重"
