@@ -9,12 +9,19 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 
 class BMIActivity : AppCompatActivity() {
+
+    companion object{
+        private const val METRIC_UNITS_VIEW = "METRIC_UNIT_VIEW"
+        private const val US_UNITS_VIEW = "US_UNIT_VIEW"
+    }
+    private var currentVisibleView: String = METRIC_UNITS_VIEW
+
     private var binding: ActivityBmiBinding? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //Todo 4 inflate the layout
+
         binding = ActivityBmiBinding.inflate(layoutInflater)
-        //Todo 5 connect the layout to this activity
+        //connect the layout to this activity
         setContentView(binding?.root)
 
 
@@ -25,6 +32,14 @@ class BMIActivity : AppCompatActivity() {
         }
         binding?.toolbarBmiActivity?.setNavigationOnClickListener {
             onBackPressed()
+        }
+
+        binding?.rgUnits?.setOnCheckedChangeListener { _, checkedId: Int ->
+            if(checkedId == R.id.rbMetricUnits) {
+                makeVisibleMetricUnitsView()
+            } else {
+                makeVisibleUsUnitsView()
+            }
         }
 
         binding?.btnCalculateUnits?.setOnClickListener {
@@ -39,6 +54,41 @@ class BMIActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter valid values.", Toast.LENGTH_SHORT)
                     .show()
             }
+        }
+    }
+
+    private fun makeVisibleMetricUnitsView() {
+        currentVisibleView = METRIC_UNITS_VIEW
+        binding?.apply{
+            tilMetricUnitHeight.visibility = View.VISIBLE
+            tilMetricUnitWeight.visibility = View.VISIBLE
+            tilUsMetricUnitWeight.visibility = View.GONE // make weight view Gone.
+            tilMetricUsUnitHeightFeet.visibility = View.GONE
+            tilMetricUsUnitHeightInch.visibility = View.GONE
+
+            etMetricUnitHeight.text!!.clear() // height value is cleared if it is added.
+            etMetricUnitWeight.text!!.clear() // weight value is cleared if it is added.
+
+            llDiplayBMIResult.visibility = View.INVISIBLE
+        }
+    }
+
+    private fun makeVisibleUsUnitsView() {
+        currentVisibleView = US_UNITS_VIEW // Current View is updated here.
+        binding?.apply{
+            tilMetricUnitHeight.visibility =
+                View.INVISIBLE // METRIC  Height UNITS VIEW is InVisible
+            tilMetricUnitWeight.visibility =
+                View.INVISIBLE // METRIC  Weight UNITS VIEW is InVisible
+            tilUsMetricUnitWeight.visibility = View.VISIBLE // make weight view visible.
+            tilMetricUsUnitHeightFeet.visibility = View.VISIBLE // make height feet view visible.
+            tilMetricUsUnitHeightInch.visibility = View.VISIBLE // make height inch view visible.
+
+            etUsMetricUnitWeight.text!!.clear() // weight value is cleared.
+            etUsMetricUnitHeightFeet.text!!.clear() // height feet value is cleared.
+            etUsMetricUnitHeightInch.text!!.clear() // height inch is cleared.
+
+            llDiplayBMIResult.visibility = View.INVISIBLE
         }
     }
 
