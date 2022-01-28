@@ -86,7 +86,7 @@ class BMIActivity : AppCompatActivity() {
         val bmiLabel: String
         val bmiDescription: String
 
-        //compareTo 等於return 0，小於return負值，大於return正值
+        //compareTo 等於return 0，小於return負值(-1)，大於return正值(+1)
         //if bmi小於等於15
         if (bmi.compareTo(15f) <= 0) {
             bmiLabel = "Very severely underweight"
