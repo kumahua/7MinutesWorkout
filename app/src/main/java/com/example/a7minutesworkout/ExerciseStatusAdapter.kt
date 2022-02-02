@@ -12,7 +12,7 @@ class ExerciseStatusAdapter(private val items: ArrayList<ExerciseModel>) :
     RecyclerView.Adapter<ExerciseStatusAdapter.ViewHolder>() {
 
     /**
-     * A ViewHolder describes an item view and metadata about its place within the RecyclerView.
+     * ViewHolder 描述了一個項目視圖和關於它在 RecyclerView中的位置的元數據。
      */
     class ViewHolder (binding: ItemExerciseStatusBinding) : RecyclerView.ViewHolder(binding.root)  {
         // Holds the TextView that will add each item to
