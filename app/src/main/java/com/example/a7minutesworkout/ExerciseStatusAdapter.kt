@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.a7minutesworkout.databinding.ItemExerciseStatusBinding
 
 // TODO(Creating an adapter class for RecyclerView using the item designed for it and along with Exercise Model class.)
-class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>) :
+class ExerciseStatusAdapter(private val items: ArrayList<ExerciseModel>) :
     RecyclerView.Adapter<ExerciseStatusAdapter.ViewHolder>() {
 
     /**
