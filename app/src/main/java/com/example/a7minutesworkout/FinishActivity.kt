@@ -47,7 +47,7 @@ class FinishActivity : AppCompatActivity() {
         Log.e("Date: ", ""+dataTime)
 
         val sdf = SimpleDateFormat("yyyy MM dd HH:mm:ss", Locale.getDefault())
-        sdf.setTimeZone(TimeZone.getTimeZone("UTC"))
+        sdf.timeZone = TimeZone.getTimeZone("Asia/Taipei")
         val date = sdf.format(dataTime)
 
         Log.e("Formatted Date: ", "" + date)

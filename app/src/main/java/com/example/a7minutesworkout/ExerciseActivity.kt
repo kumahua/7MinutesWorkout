@@ -30,7 +30,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var exerciseTimerDuration: Long = 1
 
     private var exerciseList: ArrayList<ExerciseModel>? = null
-    //private lateinit var exerciseList: ArrayList<ExerciseModel>
+
     private var currentExercisePosition = -1
 
     private var tts: TextToSpeech? = null
