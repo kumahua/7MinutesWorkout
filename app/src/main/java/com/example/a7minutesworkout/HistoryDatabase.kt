@@ -8,10 +8,11 @@ import androidx.room.RoomDatabase
 @Database(entities = [HistoryEntity::class], version = 1)
 abstract class HistoryDatabase : RoomDatabase() {
     /**
-     * Connects the database to the DAO.
+     * 將資料庫連接至DAO
      */
     abstract fun historyDao(): HistoryDao
 
+    //官方推薦的 Singleton 寫法，因為實體的產生很耗資源，而且也不需要多個資料庫實體
     companion object{
         @Volatile
         private var INSTANCE: HistoryDatabase? = null
@@ -27,7 +28,7 @@ abstract class HistoryDatabase : RoomDatabase() {
             // 多執行緒(Multiple threads)可以同時請求資料庫，確保我們只使用同步初始化一次。 一次只能有一個執行續進入同步塊。
             synchronized(this) {
 
-                // Copy the current value of INSTANCE to a local variable so Kotlin can smart cast.
+                // 將 INSTANCE 的當前值複製到局部變量，以便 Kotlin 可以智能轉換。
                 // Smart cast is only available to local variables.
                 var instance = INSTANCE
 
