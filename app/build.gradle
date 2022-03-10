@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.a7minutesworkout"
-        minSdk 31
+        minSdk 28
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -37,7 +37,7 @@ android {
 
 dependencies {
     //define variables use with dependencies
-    def room_version = '2.4.1'
+    def room_version = '2.4.2'
     def activityVersion = '1.4.0'
     // Room and Lifecycle dependencies
     implementation "androidx.room:room-runtime:$room_version"
